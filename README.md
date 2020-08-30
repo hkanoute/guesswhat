@@ -196,7 +196,7 @@ stratégie qui réduit le nombre de cas à soumettre dans le pire cas, de l'ordr
 L'analyse de la stratégie du joueur, lorsqu'il termine une partie, devra prendre en compte les paramètres du jeu, 
 à savoir le nombre de cartes et l'aide à la décision si elle a été activée pour la partie en question. 
 
-:point_right: À ce niveau là, il n'est pas question d'interragir avec un utilisateur (ce sera vu ultérieurement). 
+:point_right: À ce niveau là, il n'est pas question d'interagir avec un utilisateur (ce sera vu ultérieurement). 
 Tout se passe donc dans les classes de tests !
 
 Bonne analyse et programmation !
