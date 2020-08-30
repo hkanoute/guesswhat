@@ -123,7 +123,7 @@ Une fois cloné, **aller à la racine du projet** puis lancer les commandes suiv
 
 #### Lancement des tests unitaires
   
-À **la racine du projet** du projet, lancer la commande :  `./bin/phpunit --version`
+À **la racine du projet** du projet, lancer la commande :  `./bin/phpunit`
 
 Le résultat attendu est : 
 
@@ -151,7 +151,7 @@ Ressources :
 
 ## TP2 implémentation des TODOs 
 
-Bravo, si vous en êtes là, c'est que votre machine de dev est opérationnelle pour ce projet çi.
+Bravo, si vous en êtes là, c'est que votre machine de dev est opérationnelle pour ce projet.
 Vous allez maintenant avoir besoin d'un éditeur de code source qui vous permette de passer en mode projet.
 
 :point_right: _une erreur de débutant consiste à ouvrir un fichier à partir de l'explorateur de fichier._ 
@@ -180,9 +180,9 @@ cette documentation [methode magique toString](https://www.php.net/manual/fr/lan
 À ce niveau là, vous avez acquis une certaine autonomie sur le projet et intégré les
 concepts de base de la notion de tests unitaires. C'est ce que nous allons vérifier.
 
-Votre mission consiste à créer une classe de tests qui teste la logique du jeu.
+Votre mission consiste à concevoir une classe de tests qui teste la logique du jeu (représentée par la classe `Guess`).
 Ce travail est à réaliser en binôme. Il y aura des décisions à prendre, qui pourront être discuter collectivement, 
-entre binômes.
+entre différents binômes.
 
 Voici quelques éléments à prendre en compte dans votre analyse.
 
@@ -196,5 +196,7 @@ stratégie qui réduit le nombre de cas à soumettre dans le pire cas, de l'ordr
 L'analyse de la stratégie du joueur, lorsqu'il termine une partie, devra prendre en compte les paramètres du jeu, 
 à savoir le nombre de cartes et l'aide à la décision si elle a été activée pour la partie en question. 
 
+:point_right: À ce niveau là, il n'est pas question d'interragir avec un utilisateur (ce sera vu ultérieurement). 
+Tout se passe donc dans les classes de tests !
+
 Bonne analyse et programmation !
- 
