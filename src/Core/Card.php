@@ -23,7 +23,6 @@ class Card
    * @param string $name
    * @param string $color
    */
-
   public function __construct(string $name, string $color)
   {
     $this->name = $name;
@@ -61,8 +60,10 @@ class Card
    * </ul>
    *
    */
-  public static function cmp(Card $o1, Card $o2)
+  public static function cmp(Card $o1, Card $o2) : int
   {
+    // TODO il faudra prendre aussi en compte la couleur !
+
     $o1Name = strtolower($o1->name);
     $o2Name = strtolower($o2->name);
     if ($o1Name == $o2Name) {
@@ -70,5 +71,6 @@ class Card
     }
     return ($o1Name > $o2Name) ? +1 : -1;
   }
+
 
 }

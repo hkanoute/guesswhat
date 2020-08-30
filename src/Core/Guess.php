@@ -9,7 +9,7 @@ namespace App\Core;
 class Guess
 {
   /**
-   * @var $cards array a set of Cards
+   * @var $cards array a array of Cards
    */
   private $cards;
 
