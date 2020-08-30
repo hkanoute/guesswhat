@@ -1,4 +1,4 @@
-#Guess What
+# Guess What
 
 Prise en main de la POO avec PHP
 
@@ -6,7 +6,7 @@ Niveau : Deuxième année de BTS SIO SLAM
 
 Prérequis : bases de la programmation, PHP 7 ou supérieur installé sur votre machine de dev.  
 
-##Thème 
+## Thème 
 
 Développer une logique de jeu puis l'adapter progressivement (en _refactoring_) à un contexte d'application web (avec symfony)   
  
@@ -20,13 +20,13 @@ Les étapes d'un scénario typique d'usage sont
 * Si ce n'est pas la bonne carte, alors si l'aide est activée, le joeur est informé si la carte qu'il a soumise est 
 plus petite ou plus grande que celle à deviner. Retour en 3.
 
-##Objectif
+## Objectif
 
 * Mise au point de la logique applicative avec PHPUnit
 * Notion de structure de données, recherche d'un élement dans une liste 
 * Analyse des actions du joueur (fonction du nombre de cartes, aides à la décision)  
 
-##Premiers éléments d'analyse 
+## Premiers éléments d'analyse 
 
 ![analyse uml](doc/guesswhat-analyse1.png)
 
@@ -40,7 +40,7 @@ Pour l'essentiel (le cours associé apportera d'autres informations et répondra
 Une instance de `Guess` est relièe, à un instant _t_, à un ensemble de cartes
  (`cards`) et à une instance de `Card` (`selectedCard` est la carte que le joueur doit deviner)   
 
-##Première implémentation
+## Première implémentation
 
 Classe `Card` (extrait. Localisation : `src/Core/Card.php`)
 ```php
@@ -112,6 +112,7 @@ class Guess
 
 ### Télécharger le projet de démarrage
 
+:point_right: _Conseil : utiliser l'instruction `git clone`_
 
 Une fois cloné, **aller à la racine du projet** puis lancer les commandes suivantes :
 * `composer install`  (le téléchargement et installation des composants déclarés dans le fichier `composer.json` peut prendre quelques minutes)
@@ -171,7 +172,7 @@ Le travail à faire a été signalé dans le code source par des commentaires `T
 
 Pour consulter la liste des TODOs, ouvrir la fenêtre TODO tool: `View | Tool Windows | TODO`.
  
-Attention : la méthode toString fait partie des méthodes dites _magique_ en PHP. À ce sujet vous consulterez 
+:point_right: Attention : la méthode toString fait partie des méthodes dites _magique_ en PHP. À ce sujet vous consulterez 
 cette documentation [methode magique toString](https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring)
  
 ## TP3 conception de tests unitaires pour `Guess`
