@@ -1,5 +1,6 @@
 = Analyse
-
+// Settings
+ifdef::env-gitlab[:outfilesuffix: .adoc]
 
 [plantuml, diagram-classes, png]
 ....
