@@ -28,7 +28,26 @@ plus petite ou plus grande que celle à deviner. Retour en 3.
 
 ## Premiers éléments d'analyse 
 
-![analyse uml](doc/guesswhat-analyse1.png)
+```plantuml
+class Guess {
+  withHelp : boolean
+
+  start()
+  processUserProposal(c : Card)
+  getStatistic()
+}
+
+class Card {
+  name
+  color
+  {static} cmp(Card c1, Card c2) : int
+}
+
+Guess -> "\nselectedCard  1  " Card : "                             "
+Guess -> "cards *  " Card : "                                     "
+
+hide circle
+```
 
 Cette analyse est une première ébauche, donc incomplète et/ou à ajuster, mais suffisante pour réaliser 
 vos premiers pas sur ce projet.
@@ -61,7 +80,7 @@ class Card
   /**
    * @var $color string couleur de la carte, par exemples 'Pique', 'Carreau'
    */
-  private $color;
+  private $color; 
 
   /**
    * @return string
