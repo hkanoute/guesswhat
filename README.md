@@ -109,7 +109,7 @@ namespace App\Core;
 class Guess
 {
   /**
-   * @var $cards array a array of Cards
+   * @var $cards array of Cards
    */
   private $cards;
 
@@ -136,7 +136,8 @@ class Guess
 Une fois cloné, **aller à la racine du projet** puis lancer les commandes suivantes :
 * `composer install`  (le téléchargement et installation des composants déclarés dans le fichier `composer.json` peut prendre quelques minutes)
 
-* `./bin/phpunit --version` (le résultat devrait être, à un numéro de version prêt : `PHPUnit 7.5.20 by Sebastian Bergmann and contributors.` )
+* `./bin/phpunit --version` (le premier lancement de cette commande provoquera l'installation du plugin `phpunit`, puis lancera les tests.
+  Le résultat devrait être, à un numéro de version prêt : `PHPUnit 7.5.20 by Sebastian Bergmann and contributors.` )
 
 :point_right: À ce niveau là, ne vous préoccupez pas de l'écosystème Symfony, il serait étudié très bientôt.
 
