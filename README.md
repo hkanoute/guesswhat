@@ -119,6 +119,8 @@ Une fois cloné, **aller à la racine du projet** puis lancer les commandes suiv
 
 * `./bin/phpunit --version` (le résultat devrait être, à un numéro de version prêt : `PHPUnit 7.5.20 by Sebastian Bergmann and contributors.` )
 
+:point_right: À ce niveau là, ne vous préoccupez pas de l'écosystème Symfony, il serait étudié très bientôt.
+
 ### Tester le bon fonctionnement de ce petit existant
 
 #### Lancement des tests unitaires
@@ -144,10 +146,10 @@ Le résultat attendu est :
     OK, but incomplete, skipped, or risky tests!
     Tests: 5, Assertions: 3, Risky: 3.
 
+Ressources utiles :
 
-Ressources :
-* [Une introduction rapide sur les tests unitaires avec PHPUnit sur openclassrooms](https://openclassrooms.com/fr/courses/4087056-testez-et-suivez-letat-de-votre-application-php/4419446-premiers-pas-avec-phpunit-et-les-tests-unitaires)
-* [la doc de PHPUnit en français](https://phpunit.readthedocs.io/fr/latest/)
+* **Fortement recommandé (à étudier chez vous) :** [Les tests unitaires, premiers pas avec PHPUnit sur openclassrooms](https://openclassrooms.com/fr/courses/4087056-testez-et-suivez-letat-de-votre-application-php/4419446-premiers-pas-avec-phpunit-et-les-tests-unitaires) - n'hésitez pas à noter vos questions, j'y répondrai en cours. 
+* [Documentation de PHPUnit en français](https://phpunit.readthedocs.io/fr/latest/)
 
 ## TP2 implémentation des TODOs 
 
