@@ -197,6 +197,37 @@ image::doc/guesswhat-phpstorm.png[analyse uml]
 Le message `Tests: 5, Assertions: 3, Risky: 3.` nous informe que 5 tests ont été lancés, avec 3 assertions au total, 
 mais 3 tests sont à risque pour la bonne raison qu'ils ne testent rien ! **Ceci est votre premier challenge !**
 
+Voici un extrait de la classe de test :
+
+[, php]
+----
+<?php
+
+namespace App\Tests\Core; <1>
+
+use PHPUnit\Framework\TestCase;
+use App\Core\Card;
+
+class CardTest extends TestCase <2>
+{
+
+  public function testName() <3>
+  {
+    $card = new Card('As', 'Trèfle');  <4>
+    $this->assertEquals('As', $card->getName()); <5>
+  }
+
+----
+<1> Les classes de test sont placées, par convention, sur une arborescence `tests` (ou `test`) parallèle à `src`
+<2> Cette classe de test hérite de `TestCase` (du framework `PHPUnit`)
+<3> Attention, les méthodes de test commencent par le préfix _test_
+<4> Création d'une instance de `Card` (As de trèfle)
+<5> C'est ici que le test a lieu. `$this->assertEquals` (méthode héritée) permet de comparer
+une *valeur attendue* (premier argument) avec une valeur obtenue par l'appel à la méthode `getName` de l'instance
+précédemment crée (second argument). Le résultat dégagé suite à l'appel de `$this->assertEquals` est géré par `PHPUnit`
+qui en fait l'analyse et la restitue en fin d'exécution des tests (exécution provoquée par la commande `./bin/phpunit`
+dans le terminal)
+
 Le travail à faire a été signalé dans le code source par des commentaires `TODO` (une pratique courante dans le métier).
 
 Pour consulter la liste des TODOs, ouvrir la fenêtre TODO tool: `View | Tool Windows | TODO`.
