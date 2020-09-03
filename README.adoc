@@ -232,4 +232,13 @@ vous de décider de son contenu (sa valeur).
 TIP: À ce niveau là, il n'est pas question d'interagir avec un utilisateur (ce sera vu ultérieurement).
 Tout se passe donc dans les classes de tests !
 
+== Livraison
+
+Modalité de livraison (mode « binôme ») : dépôt sur GitLab avec un README.adoc faisant référence au sujet
+(dépôt _guesswhat_ initial)  et présentant votre travail.
+
+Ressource utile : https://docs.gitlab.com/ee/user/asciidoc.html[courte documentation asciidoc sur GitLab]
+
+La deadline vous sera communiquée sur l'espace ENT dédiée.
+
 Bonne analyse et programmation !
