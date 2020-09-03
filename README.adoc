@@ -223,8 +223,8 @@ class CardTest extends TestCase <2>
 <3> Attention, les méthodes de test commencent par le préfix _test_
 <4> Création d'une instance de `Card` (As de trèfle)
 <5> C'est ici que le test a lieu. `$this->assertEquals` (méthode héritée) permet de comparer
-une *valeur attendue* (premier argument) avec une valeur obtenue par l'appel à la méthode `getName` de l'instance
-précédemment crée (second argument). Le résultat dégagé suite à l'appel de `$this->assertEquals` est géré par `PHPUnit`
+une *valeur attendue* (premier argument) avec une *valeur obtenue* par l'appel à la méthode `getName` de l'instance
+précédemment créée (second argument). Le résultat dégagé suite à l'appel de `$this->assertEquals` est géré par `PHPUnit`
 qui en fait l'analyse et la restitue en fin d'exécution des tests (exécution provoquée par la commande `./bin/phpunit`
 dans le terminal)
 
@@ -232,7 +232,7 @@ Le travail à faire a été signalé dans le code source par des commentaires `T
 
 Pour consulter la liste des TODOs, ouvrir la fenêtre TODO tool: `View | Tool Windows | TODO`.
  
-WARNING: Attention : la méthode toString fait partie des méthodes dites _magique_ en PHP. À ce sujet vous consulterez
+WARNING: Attention : la méthode toString fait partie des méthodes dites "_magiques_" en PHP. À ce sujet vous consulterez
 cette documentation https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring[methode magique toString]
 
 == TP3 conception de tests unitaires pour `Guess`
