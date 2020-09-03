@@ -1,12 +1,12 @@
-# Guess What
+= Guess What
 
 Prise en main de la POO avec PHP
 
 Niveau : Deuxième année de BTS SIO SLAM
 
-Prérequis : bases de la programmation, PHP 7 ou supérieur installé sur votre machine de dev.  
+Prérequis : bases de la programmation, PHP 7 ou supérieur installé sur votre machine de dev.
 
-## Thème 
+== Thème 
 
 Développer une logique de jeu puis l'adapter progressivement (en _refactoring_) à un contexte d'application web (avec symfony)   
  
@@ -20,15 +20,16 @@ Les étapes d'un scénario typique d'usage sont
 * Si ce n'est pas la bonne carte, alors si l'aide est activée, le joeur est informé si la carte qu'il a soumise est 
 plus petite ou plus grande que celle à deviner. Retour en 3.
 
-## Objectif
+== Objectif
 
 * Mise au point de la logique applicative avec PHPUnit
 * Notion de structure de données, recherche d'un élement dans une liste 
 * Analyse des actions du joueur (fonction du nombre de cartes, aides à la décision)  
 
-## Premiers éléments d'analyse 
+== Premiers éléments d'analyse
 
-```plantuml
+[plantuml]
+----
 class Guess {
   withHelp : boolean
 
@@ -47,22 +48,25 @@ Guess -> "\nselectedCard  1  " Card : "                             "
 Guess -> "cards *  " Card : "                                     "
 
 hide circle
-```
+----
 
 Cette analyse est une première ébauche, donc incomplète et à ajuster, mais suffisante pour réaliser 
 vos premiers pas sur ce projet.
 
-Pour l'essentiel (le cours associé apportera d'autres informations et répondra à vos questions) : 
+Pour l'essentiel (le cours associé apportera d'autres informations et répondra à vos questions) :
+
 * La classe `Guess` est responsable de la logique du jeu.
-* La classe `Card` définit la structure d'une carte à jouer. 
+* La classe `Card` définit la structure d'une carte à jouer et ses méthodes.
 
-Une instance de `Guess` est relièe, à un instant _t_, à un ensemble de cartes
- (`cards`) et à une instance de `Card` (`selectedCard` est la carte que le joueur doit deviner)   
+Une instance de `Guess` est reliée, à un instant _t_, à un ensemble de cartes
+ (`cards`) et à une instance de `Card` (`selectedCard` est la carte que le joueur doit deviner)
 
-## Première implémentation
+== Première implémentation
 
 Classe `Card` (extrait. Localisation : `src/Core/Card.php`)
-```php
+
+[, php]
+----
 <?php
 namespace App\Core;
 
@@ -92,12 +96,13 @@ class Card
 
   // [...]
 }
-```
+----
 
 
-Classe `Guess` (extrait. Localisation : `src/Core/Guess.php`)
+Classe `Guess` (incomplète. Localisation : `src/Core/Guess.php`)
 
-```php
+[, php]
+----
 <?php
 
 namespace App\Core;
@@ -119,74 +124,76 @@ class Guess
   private $selectedCard;
 
 }
+----
 
-```
+== TP1 de prise en main
 
-## TP1 de prise en main
-
-### Vérifier les prérequis de votre système
+=== Vérifier les prérequis de votre système
 
 * `php cli`  doit être opérationnel. (en ligne de commande tester : `php -version`)
 * `composer` doit être opérationnel. (en ligne de commande tester : `composer -V`)
 
-### Télécharger le projet de démarrage
+=== Télécharger le projet de démarrage
 
-:point_right: _Conseil : utiliser l'instruction `git clone`_
+TIP: Conseil : utiliser l'instruction `git clone`
 
 Une fois cloné, **aller à la racine du projet** puis lancer les commandes suivantes :
+
 * `composer install`  (le téléchargement et installation des composants déclarés dans le fichier `composer.json` peut prendre quelques minutes)
 
 * `./bin/phpunit --version` (le premier lancement de cette commande provoquera l'installation du plugin `phpunit`, puis lancera les tests.
   Le résultat devrait être, à un numéro de version prêt : `PHPUnit 7.5.20 by Sebastian Bergmann and contributors.` )
 
-:point_right: À ce niveau là, ne vous préoccupez pas de l'écosystème Symfony, il serait étudié très bientôt.
+NOTE: À ce niveau là, ne vous préoccupez pas de l'écosystème Symfony, il serait étudié très bientôt.
 
-### Tester le bon fonctionnement de ce petit existant
+=== Tester le bon fonctionnement de ce petit existant
 
-#### Lancement des tests unitaires
+==== Lancement des tests unitaires
   
-À **la racine du projet** du projet, lancer la commande :  `./bin/phpunit`
+À **la racine du projet** du projet, lancer la commande : `./bin/phpunit`
 
 Le résultat attendu est : 
 
-    kpu@kpu-x1:~/PhpstormProjects/GuessThat$ ./bin/phpunit 
-    PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
+----
+kpu@kpu-x1:~/PhpstormProjects/GuessThat$ ./bin/phpunit
+PHPUnit 7.5.20 by Sebastian Bergmann and contributors.
 
-    Testing Project Test Suite
-    ..RRR                                                               5 / 5 (100%)
+Testing Project Test Suite
+..RRR                                                               5 / 5 (100%)
 
-    Time: 51 ms, Memory: 6.00 MB
+Time: 51 ms, Memory: 6.00 MB
 
-    There were 3 risky tests: This test did not perform any assertions
+There were 3 risky tests: This test did not perform any assertions
 
-    1) App\Tests\Core\CardTest::testColor
-    2) App\Tests\Core\CardTest::testCmp
-    3) App\Tests\Core\CardTest::testToString
+1) App\Tests\Core\CardTest::testColor
+2) App\Tests\Core\CardTest::testCmp
+3) App\Tests\Core\CardTest::testToString
 
-    OK, but incomplete, skipped, or risky tests!
-    Tests: 5, Assertions: 3, Risky: 3.
+OK, but incomplete, skipped, or risky tests!
+Tests: 5, Assertions: 3, Risky: 3.
+----
 
 Ressources utiles :
 
-* **Fortement recommandé (à étudier chez vous) :** [Les tests unitaires, premiers pas avec PHPUnit sur openclassrooms](https://openclassrooms.com/fr/courses/4087056-testez-et-suivez-letat-de-votre-application-php/4419446-premiers-pas-avec-phpunit-et-les-tests-unitaires) - n'hésitez pas à noter vos questions, j'y répondrai en cours. 
-* [Documentation de PHPUnit en français](https://phpunit.readthedocs.io/fr/latest/)
+* https://openclassrooms.com/fr/courses/4087056-testez-et-suivez-letat-de-votre-application-php/4419446-premiers-pas-avec-phpunit-et-les-tests-unitaires[Sur openclassrooms : premiers-pas-avec-phpunit-et-les-tests-unitaires] **Fortement recommandé** à étudier chez vous - n'hésitez pas à noter vos questions, nous y répondrons en cours.
+* https://phpunit.readthedocs.io/fr/latest/[Documentation de PHPUnit en français]
 
-## TP2 implémentation des TODOs 
+== TP2 implémentation des TODOs 
 
 Bravo, si vous en êtes là, c'est que votre machine de dev est opérationnelle pour ce projet.
 Vous allez maintenant avoir besoin d'un éditeur de code source qui vous permette de passer en mode projet.
 
-:point_right: _une erreur de débutant consiste à ouvrir un fichier à partir de l'explorateur de fichier._ 
+TIP: une *erreur de débutant* consiste à ouvrir un fichier à partir de l'explorateur de fichier.
  
 Par la suite nous utiliserons **PHPStorm** (un IDE très puissant en terme de conseils et de génération automatique 
 de code).
  
 Ouvrir le projet via `File | Open`, puis sélectionner le **dossier racine** de votre application.
 
-Dans la fenêtre `Termnal` en bas, vous devriez pouvoir lancer la commande `./bin/phpunit` et obtenir ceci :  
+Dans la fenêtre `Termnal` en bas, vous devriez pouvoir lancer la commande `./bin/phpunit` et obtenir ceci :
 
-![analyse uml](doc/guesswhat-phpstorm.png)
- 
+image::doc/guesswhat-phpstorm.png[analyse uml]
+
 Le message `Tests: 5, Assertions: 3, Risky: 3.` nous informe que 5 tests ont été lancés, avec 3 assertions au total, 
 mais 3 tests sont à risque pour la bonne raison qu'ils ne testent rien ! **Ceci est votre premier challenge !**
 
@@ -194,10 +201,10 @@ Le travail à faire a été signalé dans le code source par des commentaires `T
 
 Pour consulter la liste des TODOs, ouvrir la fenêtre TODO tool: `View | Tool Windows | TODO`.
  
-:point_right: Attention : la méthode toString fait partie des méthodes dites _magique_ en PHP. À ce sujet vous consulterez 
-cette documentation [methode magique toString](https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring)
- 
-## TP3 conception de tests unitaires pour `Guess`
+WARNING: Attention : la méthode toString fait partie des méthodes dites _magique_ en PHP. À ce sujet vous consulterez
+cette documentation https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring[methode magique toString]
+
+== TP3 conception de tests unitaires pour `Guess`
 
 À ce niveau là, vous avez acquis une certaine autonomie sur le projet et intégré les
 concepts de base de la notion de tests unitaires. C'est ce que nous allons vérifier.
@@ -213,12 +220,16 @@ Dans le pire cas il soumettra autant de cartes que le jeu en contient (l'ordre d
 le nombre de cartes), dans le meilleur cas O(1) (coup de chance il tombe dessus du premier coup).  
 * Recherche dichotomique (nécessite une relation d'ordre total) : Si l'utilisateur est informé de la position de 
 la carte qu'il soumet par rapport à la carte à trouver (inférieur ou supérieur) alors il peut appliquer une 
-stratégie qui réduit le nombre de cas à soumettre dans le pire cas, de l'ordre de O(log2 n). 
+stratégie qui réduit le nombre de cas à soumettre dans le pire cas, de l'ordre de O(log2 n). Wikipédia vous fournira
+des informations utiles sur ces notions.
 
 L'analyse de la stratégie du joueur, lorsqu'il termine une partie, devra prendre en compte les paramètres du jeu, 
-à savoir le nombre de cartes et l'aide à la décision si elle a été activée pour la partie en question. 
+à savoir le nombre de cartes et l'aide à la décision si elle a été activée pour la partie en question.
 
-:point_right: À ce niveau là, il n'est pas question d'interagir avec un utilisateur (ce sera vu ultérieurement). 
+L'analyse de la stratégie du joueur peut être représentée sous la forme d'un texte (une chaine de caractères). C'est à
+vous de décider de son contenu (sa valeur).
+
+TIP: À ce niveau là, il n'est pas question d'interagir avec un utilisateur (ce sera vu ultérieurement).
 Tout se passe donc dans les classes de tests !
 
 Bonne analyse et programmation !
