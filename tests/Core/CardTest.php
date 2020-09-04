@@ -12,6 +12,9 @@ class CardTest extends TestCase
   {
     $card = new Card('As', 'Trèfle');
     $this->assertEquals('As', $card->getName());
+    $card = new Card('2', 'Trèfle');
+    $this->assertEquals('2', $card->getName());
+
   }
 
   public function testSort()

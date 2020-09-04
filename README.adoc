@@ -144,6 +144,8 @@ Une fois cloné, **aller à la racine du projet** puis lancer les commandes suiv
 * `./bin/phpunit --version` (le premier lancement de cette commande provoquera l'installation du plugin `phpunit`, puis lancera les tests.
   Le résultat devrait être, à un numéro de version prêt : `PHPUnit 7.5.20 by Sebastian Bergmann and contributors.` )
 
+TIP: Sous windows la commande est `php .\bin\phpunit --version` (remarquez l'usage de `\` au lieu de `/` )
+
 NOTE: À ce niveau là, ne vous préoccupez pas de l'écosystème Symfony, il serait étudié très bientôt.
 
 === Tester le bon fonctionnement de ce petit existant
@@ -233,7 +235,7 @@ Le travail à faire a été signalé dans le code source par des commentaires `T
 Pour consulter la liste des TODOs, ouvrir la fenêtre TODO tool: `View | Tool Windows | TODO`.
  
 WARNING: Attention : la méthode toString fait partie des méthodes dites "_magiques_" en PHP. À ce sujet vous consulterez
-cette documentation https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring[methode magique toString]
+cette documentation https://www.php.net/manual/fr/language.oop5.magic.php#object.tostring[methode "magique" toString]
 
 == TP3 conception de tests unitaires pour `Guess`
 
