@@ -32,7 +32,7 @@ class CardTest extends TestCase
     // trie le tableau $cards, en utilisant la fonction de comparaison Card::cmp
     // rem : la syntaxe n'est pas intuitive, on doit passer
     // le nom complet de la classe et le nom d'une méthode de comparaison.
-    // (voir https://www.php.net/manual/fr/function.usort.php)
+    // (voir https://www.php.net/manual/fr/function.usort.php)"
     usort($cards,  array("App\Core\Card", "cmp"));
 
     // vérifie que le tableau $cards a bien été modifié par usort
@@ -42,12 +42,35 @@ class CardTest extends TestCase
 
   public function testColor()
   {
-    //TODO
+      $card = new Card('As', 'Trèfle');
+      $this->assertEquals('Trèfle', $card->getColor());
   }
 
   public function testCmp()
   {
-    //TODO
+    $card = new Card('AS',"Trèfle");
+    $card2 = new Card("2","Trèfle");
+    $result = Card::cmp($card,$card2);
+    $this->assertEquals(1,$result);
+
+    $card = new Card('2',"Trèfle");
+    $card2 = new Card("A","Trèfle");
+    $result = Card::cmp($card,$card2);
+    $this->assertEquals(-1,$result);
+
+    $card = new Card('AS',"Trèfle");
+    $card2 = new Card("AS","Trèfle");
+    $result = Card::cmp($card,$card2);
+    $this->assertEquals(0,$result);
+
+      $card = new Card('AS',"Trèfle");
+      $card2 = new Card("AS","pique");
+      $result = Card::cmp($card,$card2);
+      $this->assertEquals(0,$result);
+
+
+
+
   }
 
   public function testToString()
