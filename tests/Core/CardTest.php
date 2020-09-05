@@ -63,8 +63,8 @@ class CardTest extends TestCase
     $result = Card::cmp($card,$card2);
     $this->assertEquals(0,$result);
 
-      $card = new Card('AS',"Trèfle");
-      $card2 = new Card("AS","pique");
+      $card = new Card('AS',"Pique");
+      $card2 = new Card("AS","Trèfle");
       $result = Card::cmp($card,$card2);
       $this->assertEquals(0,$result);
 

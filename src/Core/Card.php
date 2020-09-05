@@ -82,7 +82,9 @@ class Card
 
     $o1Name = strtolower($o1->name);
     $o2Name = strtolower($o2->name);
-    if ($o1Name == $o2Name) {
+    $o1Color = strtolower($o1->color);
+    $o2Color = strtolower($o2->color);
+    if ($o1Name == $o2Name && $o1Color == $o2Color) {
       return 0;
     }
     return ($o1Name > $o2Name) ? +1 : -1;
